@@ -5,5 +5,7 @@ for example in the first-step to compile the main.c file included other.h header
 the compilation command-line is like :
 
 gcc other.c main.c -o main
+//
+gcc *.c -o main
 
 (other.h first defines in other.c)

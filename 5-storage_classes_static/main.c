@@ -2,6 +2,11 @@
 
 int initializer() { return 100; }
 
+//! the fun() is extern by default.
+//! but if we add a static keyword before it,
+//! we'll recieve an error in compilation-time,
+//! cause we use fun() inside foo.c file !
+
 int fun() {
   static int count = 0;
 

@@ -1,24 +1,39 @@
 #include <stdio.h>
-#include <math.h>
 
-int convertDecimalToBinary()
+long long convertDecimalToBinary(int n);
+
+int main()
 {
-    int decimalNumber;
+    int n = 0;
 
-    int binaryNumber;
+    long long result;
 
-    printf("Please Enter a Number : ");
+    printf("Enter a decimal number: ");
 
-    scanf("%d", &decimalNumber);
+    scanf("%d", &n);
 
-    while (decimalNumber > 127 || decimalNumber< -128) {
-        printf("Enter a Number Between -128 and +127");
-    
-        break ;
+    result = convertDecimalToBinary(n);
+
+    printf("%d in decimal = %lld in binary\n", n , result);
+
+    return 0;
+
+}
+
+long long convertDecimalToBinary(int n)
+{
+    long long binaryNum =0 ;
+    int reminder , i =1;
+
+    while (n != 0) {
+        reminder = n % 2;
+
+        n = n / 2;
+
+        binaryNum += reminder * i;
+
+        i = i * 10;
     }
 
-    if(decimalNumber / 127 == 1){
-        binaryNumber = 01111111;
-    } else if(decimalNumber / 64);
-
+    return binaryNum;
 }

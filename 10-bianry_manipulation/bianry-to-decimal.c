@@ -26,7 +26,8 @@ int convertBinaryToDecimal(long long n) {
 
     n = n / 10;
 
-    decinalNumber += reminder * pow(2, i);
+    decinalNumber += reminder*pow(2, i);
+    // decinalNumber += 1 << i ;
 
     i++;
   }
@@ -59,4 +60,17 @@ int convertBinaryToDecimal(long long n) {
 //     }
 
 //     return decimalNumber;
+// }
+
+
+// int main() {
+//     char binary[] = "1011";
+
+//     int result = convertBinaryToDecimal(binary);
+
+//     if (result != -1) {
+//         printf("Decimal of %s is %d\n", binary, result);
+//     }
+
+//     return 0;
 // }

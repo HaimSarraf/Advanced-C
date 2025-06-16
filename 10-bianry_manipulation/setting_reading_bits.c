@@ -24,3 +24,5 @@ int main()
     return 0;
 }
 
+// working with a complete manuel bitmask is harder
+

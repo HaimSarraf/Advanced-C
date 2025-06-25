@@ -23,7 +23,7 @@ int main()
         //? unable to open file hence exit
 
         printf("\nUnable to open file.\n");
-        printf("Please check whether file exists and you have read privile");
+        printf("Please check whether file exists and you have read privilege\n");
         exit(EXIT_FAILURE);
    }
 

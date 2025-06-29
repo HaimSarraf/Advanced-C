@@ -2,6 +2,12 @@
 
 #define JUST_CHECKING
 #define LIMIT 4
+#define MYDEF 3
+
+#pragma GCC poison printf
+#pragma GCC warning "This is a warning"
+#pragma GCC error "That's an error"
+#pragma message "OK"
 
 int main(void) {
   int i = 0;
@@ -15,7 +21,13 @@ int main(void) {
     #endif
   }
 
-  printf("Grand Total = %d\n", total);
+  printf("Grand Total = %d\n\n\n", total);
+
+  #if MYDEF == 5 && LIMIT == 4
+    printf("it is 5\n");
+  #else
+    printf("it is not 5\n");
+  #endif    
 
   return 0;
 }

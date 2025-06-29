@@ -45,11 +45,15 @@ union number {
 
 void printVariables();
 void printNumbers();
+void foo(union number n);
+void printPointer();
 
 int main() {
-  // printf("Some simple examples of unions\n");
+  printf("Some simple examples of unions\n\n");
   // printVariables();
-  printNumbers();
+  // printNumbers();
+  printPointer();
+
 
   return 0;
 }
@@ -76,6 +80,9 @@ void printNumbers() {
 
   value.x = 100; //? put an integer into the union
 
+  // union number num = {.x = 20}; ===  union number num = {20};
+  //? only can be initialized for its first element
+
   printf("value of integer x : %d\n", value.x);
   printf("value of double y : %f\n", value.y);
 
@@ -83,4 +90,19 @@ void printNumbers() {
 
   printf("value of integer x : %d\n", value.x);
   printf("value of double y : %f\n", value.y);
+}
+
+void foo(union number n)
+{
+    union number x = n;
+}
+
+void printPointer(){
+
+  union number x;
+  union number *y = &x;
+
+  y->y = 100.0;
+  printf("value of integer x : %d\n", y->x);
+  printf("value of double y : %f\n", y->y);
 }

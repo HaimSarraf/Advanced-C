@@ -5,8 +5,9 @@ int Debug = 0;
 int process(int i, int j);
 
 #ifdef DEBUG_ON
-#define DEBUG(level, fmt, ...)                                                 \
-  if (Debug >= level) printf(fmt, __VA_ARGS__))
+#define DEBUG(level, fmt, ...)\
+  if (Debug >= level)\
+    fprintf(stderr,fmt, __VA_ARGS__)
 #else
 #define DEBUG(level, fmt, ...)
 #endif
@@ -19,7 +20,7 @@ int main(int argc, char *argv[]) {
     arg1 = atoi(argv[2]);
   }
 
-  if (argc == 3) {
+  if (argc == 4) {
     arg2 = atoi(argv[3]);
   }
 

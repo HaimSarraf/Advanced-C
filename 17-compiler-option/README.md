@@ -3,7 +3,7 @@ you have 3 options :
 
 (on a debian-linux machine like ubuntu)in terminal run the codes below:
 
-$ gcc -D DEBUGON preprocessor-debugging-example.c -o x.c
+$ gcc -D DEBUG_ON preprocessor-debugging-example.c -o x
 
 then you can choose the debug level :
 

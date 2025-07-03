@@ -80,7 +80,7 @@ void joo(char *ptr) {
   ptr = malloc(255);
   strcpy(ptr, "hello world\n");
 }
-//? to solve its problem, redefine joo()
+//? to solve its problem, redefine joo() as joo_2() :
 void joo_2(char **ptr) {
   *ptr = malloc(255);
   strcpy(*ptr, "hello world\n");

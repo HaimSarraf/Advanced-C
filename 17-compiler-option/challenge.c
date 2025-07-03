@@ -1,7 +1,17 @@
 //! to run this file , in terminal(on a linux machine)
-//! just type : $ gcc -D DEBUG -g challenge.c -o challenge.o
-//! then type : $ ./challenge.o
+//? just type : $ gcc -D DEBUG -g challenge.c -o challenge.o
+//? then type : $ ./challenge.o
 
+
+//! to have core-files, in teminal(on a linux machine)
+//? just type   : $ ulimit -c unlimited
+//? then run it : $ gcc -D DEBUG -g challenge.c -o challenge.o
+//?             : $ ./challenge.o 1 2 3
+//! now, it runs...
+//? then type   : $ ls -lrt
+//! now, you can see the core file
+//? now type    : $ gdb ./challenge core
+//* -finish-
 
 #include <stdio.h>
 #include <stdlib.h>

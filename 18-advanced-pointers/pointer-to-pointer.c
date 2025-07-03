@@ -11,7 +11,7 @@ int main() {
 
   printf("Address of a  = %p\n", &a);
   printf("Address of p1 = %p\n", &p1);
-  printf("Address of p2 = %p\n", &p2);
+  printf("Address of p2 = %p\n\n", &p2);
 
   //? below print statement will give the address of a
   printf("Value at the address stored by p2 = %p\n" , *p2);

@@ -7,8 +7,8 @@ int main()
     int **pptr = &ptr;
 
 
-    printf("The value of num is : %d\n" , num);
-    printf("The value of num using ptr is : %d\n" , *ptr);
+    printf("The value of num is            : %d\n" , num);
+    printf("The value of num using ptr is  : %d\n" , *ptr);
     printf("The value of num using pptr is : %d\n\n" , **pptr);
 
     printf("Address of num is            : %p\n", &num);

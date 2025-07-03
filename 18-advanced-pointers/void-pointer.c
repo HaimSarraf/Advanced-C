@@ -58,7 +58,7 @@ int printArrayPointersSize()
 
     void *pvData = &aiData[1];
 
-    pvData += sizeof(int);
+    pvData += sizeof(int); //? moves to next element
 
     printf("\n\n\n %d\n\n", *(int *)pvData);
 

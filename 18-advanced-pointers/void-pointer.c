@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int printPointersSize();
+int printArrayPointersSize();
 
 int main() {
   int i = 10;
@@ -30,6 +31,7 @@ int main() {
   printf("\n\n\n\n\n");
   printPointersSize();
 
+  printArrayPointersSize();
   return 0;
 }
 
@@ -48,4 +50,17 @@ int printPointersSize() {
   //! why ? because the -VOID-SIZE- is 8 .
 
   return 0;
+}
+
+int printArrayPointersSize()
+{
+    int aiData[3] = {10,20,30};
+
+    void *pvData = &aiData[1];
+
+    pvData += sizeof(int);
+
+    printf("\n\n\n %d\n\n", *(int *)pvData);
+
+    return 0;
 }

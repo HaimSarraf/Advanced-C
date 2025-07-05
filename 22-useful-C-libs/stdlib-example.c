@@ -1,6 +1,7 @@
-#include <bits/types/timer_t.h>
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 //? double strtod(const char *str, char **str_end);
@@ -55,11 +56,42 @@ int main() {
   */
 
   //! --- 6 ---
+  /*
   srand(time(NULL));
   for (int i = 0; i < 5; i++) {
     printf(" %d ", rand());
   }
   printf("\n");
+  */
+
+  //! --- 7 ---
+  /*
+  char command[50];
+  char list[50];
+
+  strcpy(command, "ls -l");
+  system(command);
+
+  strcpy(list, "pwd");
+  system(list);
+  */
+
+  //! --- 8 ---
+    /*
+    char *str;
+
+    //? attempt to access environment variables using getenv()
+    assert((str = getenv("HOME")) != NULL);
+    printf("Value of \"HOME Environment Variable\" : %s\n", str);
+
+    assert((str = getenv("PATH")) != NULL);
+    printf("Value of \"PATH Environment Variable\" : %s\n", str);
+
+    assert((str = getenv("LOGNAME")) != NULL);
+    printf("Value of \"LOGNAME Environment Variable\" : %s\n", str);
+    */
+
+  //! --- 9 ---
 
   return 0;
 }

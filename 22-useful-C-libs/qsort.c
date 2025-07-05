@@ -12,6 +12,7 @@ int main() {
     printf("%d\n", data[i]);
   }
 
+  return 0;
 }
 
 int comp_ints(const void *p1, const void *p2)

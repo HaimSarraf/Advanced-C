@@ -78,10 +78,13 @@ int main(void) {
       break;
     default:
       printf("Invalid Choise.\n\n");
-      printf("Enter your Choise:\n"
-             "1 to insert an Element into the list.\n"
-             "2 to delete an Element from the list.\n"
-             "3 to end.\n");
+      printf("Enter Your choise : \n"
+             "1 to insert an Element into the list in alphabetical order.\n"
+             "2 to insert an Element at the end of the list.\n"
+             "3 to insert an Element an the beginning of the list.\n"
+             "4 to delete an Element from the list.\n"
+             "5 to delete an Element from the beginning of the list.\n"
+             "6 to end.\n");
       break;
     }
 
@@ -208,6 +211,4 @@ void printList(ListNodePtr currentPtr) {
   }
 }
 
-int isEmpty(ListNodePtr head) { 
-    return head == NULL; 
-}
+int isEmpty(ListNodePtr head) { return head == NULL; }

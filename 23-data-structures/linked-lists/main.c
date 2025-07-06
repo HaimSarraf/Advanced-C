@@ -106,4 +106,59 @@ void insertAtBeginning(ListNodePtr *head, char value)
 
     *head = new_node;
 }
-void insertAtEnd
+
+void insertAtEnd(ListNodePtr *head, char value)
+{
+    ListNodePtr current = *head;
+    
+    if(current != NULL){
+        while (current->nextPtr != NULL){
+            current = current->nextPtr;
+        }
+        current->nextPtr = malloc(sizeof(node_t));
+        current->nextPtr->data = value;
+        current->nextPtr->nextPtr = NULL;
+    } else {
+        current = malloc(sizeof(node_t));
+        current->data = value;
+        current->nextPtr = NULL;
+        *head = current;
+    }
+}
+
+void insert(ListNodePtr *head, char value)
+{
+    ListNodePtr newPtr;
+    ListNodePtr previousPtr;
+    ListNodePtr currentPtr;
+
+    newPtr = malloc(sizeof(node_t));
+
+    if (newPtr != NULL) {
+        newPtr->data = value;
+        newPtr->nextPtr = NULL;
+
+        previousPtr = NULL;
+        currentPtr = *head;
+
+        while(currentPtr != NULL && value > currentPtr->data){
+            previousPtr = currentPtr;
+            currentPtr = currentPtr->nextPtr;
+        }
+
+        if(previousPtr == NULL){
+            newPtr->nextPtr = *head;
+            *head = newPtr;
+        } else {
+            previousPtr->nextPtr = newPtr;
+            newPtr->nextPtr = currentPtr;
+        }
+    } else {
+        printf("%c not inserted.No memory available.\n" , value);
+    }
+}
+
+char delete (ListNodePtr *head, char value);
+void deleteAtBeginning(ListNodePtr *head);
+int isEmpty(ListNodePtr head);
+void printList(ListNodePtr currentPtr);

@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //? self-referental structure
 struct node {
@@ -107,9 +108,31 @@ void insertNodeAtTheBeginning() {
     head->next = temp;
   }
 
-  printf("\n----INSERTED----\n");
+  printf("\n----INSERTED AT THE BEGINNING----\n");
 }
+void insertNodeAtTheEnd() {
+  int value = 0;
 
+  printf("\nEnter the value for the node : ");
+  scanf("%d", &value);
+  newnode = createNode(value);
+
+  //? head = tail = null => list is empty
+  if (head == tail && tail == NULL) {
+
+    head = tail = newnode;
+    head->next = NULL;
+    tail->next = NULL;
+
+  } else {
+
+    temp = head;
+    head = newnode;
+    head->next = temp;
+  }
+
+  printf("\n----INSERTED AT THE END----\n");
+}
 void insertNodeAtPosition() {
   int pos, val, cnt = 0, i;
 
@@ -156,41 +179,104 @@ void insertNodeAtPosition() {
     printf("Position is out of range !\n");
   }
 }
+void deletePosition() {
+  int pos, cnt = 0, i;
 
-void deletePosition()
-{
-    int pos, cnt = 0, i;
+  if (head == NULL) {
+    printf("List is Empty\n");
+    printf("No node to delete !\n");
+  } else {
+    printf("\nEnter the position of value to be deleted : ");
+    scanf("%d", &pos);
 
-    if(head == NULL){
-        printf("List is Empty\n");
-        printf("No node to delete !\n");
+    ptr = head;
+    if (pos == 1) {
+      head = ptr->next;
+      printf("\nElement deleted\n");
+
     } else {
-        printf("\nEnter the position of value to be deleted : ");
-        scanf("%d", &pos);
-
+      while (ptr != NULL) {
+        ptr = ptr->next;
+        cnt = cnt + 1;
+      }
+      if (pos > 0 && pos <= cnt) {
         ptr = head;
-        if(pos == 1)
-        {
-            head = ptr->next;
-            printf("\nElement deleted\n");
 
-        } else {
-            while (ptr != NULL) {
-                ptr = ptr ->next;
-                cnt = cnt + 1;
-            }
-            if(pos > 0 && pos <= cnt){
-                ptr = head;
-
-                for(i=1; i<pos; i++){
-                    
-                }
-            }
+        for (i = 1; i < pos; i++) {
+          prev = ptr;
+          ptr = ptr->next;
         }
-    }
-}
+        prev->next = ptr->next;
+      } else {
+        printf("\nPosition is out of range !\n");
+      }
 
-void insertNodeAtTheEnd();
-void search();
-void updateValue();
-void display();
+      free(ptr);
+      printf("\nElement deleted\n");
+    }
+  }
+}
+void updateValue() {
+  int oldval, newval, flag = 0;
+
+  if (head == NULL) {
+    printf("List is Empty\n");
+    printf("No nodes to update !");
+  } else {
+    printf("\nEnter the value to be Updated : ");
+    scanf("%d", &oldval);
+
+    printf("\nEnter the new Value : ");
+    scanf("%d", &newval);
+
+    for (ptr = head; ptr != NULL; ptr = ptr->next) {
+      if (ptr->value == oldval) {
+        ptr->value = newval;
+        flag = 1;
+        break;
+      }
+    }
+
+    if (flag == 1) {
+      printf("\nUpdated Successfully\n");
+    } else {
+      printf("\nValue not found in List\n");
+    }
+  }
+}
+void search() {
+  int flag = 0, key, pos = 0;
+
+  if (head == NULL) {
+    printf("List is Empty\n");
+    printf("No nodes in the list !");
+  } else {
+    printf("\nEnter the value to Search : ");
+    scanf("%d", &key);
+
+    for (ptr = head; ptr != NULL; ptr = ptr->next) {
+      pos = pos + 1;
+
+      if (ptr->value == key) {
+        flag = 1;
+        break;
+      }
+    }
+
+    if (flag == 1) {
+      printf("\nElement %d found at %d position\n", key, pos);
+    } else {
+      printf("\nElement %d not found in list\n", key);
+    }
+  }
+}
+void display() {
+  if (head == NULL) {
+    printf("\nList is Empty\n");
+    printf("\nNo nodes in the list to display !\n");
+  } else {
+    for (ptr = head; ptr != NULL; ptr = ptr->next) {
+      printf("%d\n", ptr->value);
+    }
+  }
+}

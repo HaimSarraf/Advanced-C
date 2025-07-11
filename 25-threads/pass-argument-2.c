@@ -4,6 +4,7 @@
 #include <pthread.h>
 #include <malloc.h>
 
+
 struct thread_data {
     int   thread_id;
     int   sum;

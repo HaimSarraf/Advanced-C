@@ -12,32 +12,61 @@ int socketReceive(int , char *,short);
 
 int main(int argc, char *argv[])
 {
+    /*
     int hSocket = 0, read_size = 0;
     struct sockaddr_in server;
     char sendToServer[100] = {0};
     char serverReply[200] = {0};
-
+    
     //? Create socket
     hSocket = socketCreate();
-
+    
     if(hSocket == -1){
         printf("Could not create socket\n");
         return 1;
     }
-
+    
     printf("Successfully connected with server\n");
     printf("Enter the Message : ");
     fgets(sendToServer, 100, stdin);
-
+    
     //? Send data to the server
     socketSend(hSocket, sendToServer, strlen(sendToServer));
 
     //? Receive the data from the server
     read_size = socketReceive(hSocket, serverReply, 200);
     printf("Server Response : %s\n",serverReply);
-
+    
     close(hSocket);
+    
+    return 0;
+    */
 
+      int hSocket = 0, read_size = 0;
+
+    char server_reply[200] = {0};
+
+    //Create socket
+    hSocket = socketCreate();
+
+    if(hSocket == -1)   {
+        printf("Could not create socket\n");
+        return 1;
+    }
+
+    printf("Socket is created\n");
+
+    //Connect to remote server
+    if (socketConnect(hSocket) < 0) {
+        perror("connect failed.\n");
+        return 1;
+    }
+
+    printf("Sucessfully conected with server\n");
+     //Received the data from the server
+    read_size = socketReceive(hSocket, server_reply, 200);
+    printf("Server Response : %s: read_size %d\n\n",server_reply, read_size);
+    close(hSocket);
     return 0;
 
 }
